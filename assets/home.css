@@ -1,0 +1,2356 @@
+/* =========================================================
+   MEDICARE — CLEAN, RESPONSIVE HOMEPAGE STYLES
+   Replace the contents of assets/home.css with this file.
+   ========================================================= */
+
+:root {
+  --mc-blue: #1769aa;
+  --mc-blue-dark: #103c65;
+  --mc-blue-light: #eaf4fc;
+  --mc-teal: #13a89e;
+  --mc-teal-light: #e5f7f4;
+  --mc-ink: #183247;
+  --mc-muted: #647789;
+  --mc-bg: #f5f9fc;
+  --mc-white: #fff;
+  --mc-border: #e1eaf0;
+  --mc-shadow: 0 12px 32px rgba(24, 50, 71, 0.09);
+  --mc-radius: 18px;
+  --mc-transition: 0.28s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  background: var(--mc-bg);
+  color: var(--mc-ink);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+section {
+  scroll-margin-top: 95px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--mc-teal);
+  outline-offset: 3px;
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+  padding: 12px 5.5%;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--mc-border);
+  box-shadow: 0 4px 18px rgba(24, 50, 71, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.navbar .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: var(--mc-blue-dark);
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.brand-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--mc-blue);
+  color: white;
+  box-shadow: 0 6px 15px rgba(23, 105, 170, 0.22);
+}
+
+.navbar nav {
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  color: var(--mc-ink);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    color var(--mc-transition),
+    background var(--mc-transition),
+    transform var(--mc-transition);
+}
+.nav-links a:hover {
+  color: var(--mc-teal);
+}
+.nav-links .nav-login {
+  color: var(--mc-blue);
+}
+.nav-links .nav-register {
+  padding: 8px 13px;
+  border: 1px solid #b8d8ee;
+  border-radius: 9px;
+  color: var(--mc-blue);
+}
+.nav-links .nav-register:hover {
+  background: var(--mc-blue-light);
+}
+.nav-links .nav-book {
+  padding: 9px 14px;
+  border-radius: 9px;
+  background: var(--mc-blue);
+  color: white;
+  box-shadow: 0 5px 14px rgba(23, 105, 170, 0.16);
+}
+.nav-links .nav-book:hover {
+  background: var(--mc-blue-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+.mobile-menu-btn {
+  display: none;
+  width: 44px;
+  height: 42px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--mc-blue);
+  color: white;
+  font-size: 23px;
+}
+
+/* Hero */
+.professional-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.85fr);
+  align-items: center;
+  gap: 38px;
+  padding: 76px 7% 90px;
+  overflow: hidden;
+  background: linear-gradient(125deg, #edf6fc 0%, #f9fcff 58%, #e4f7f3 100%);
+}
+.hero-background-shape {
+  position: absolute;
+  top: -150px;
+  right: -120px;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: rgba(19, 168, 158, 0.09);
+  pointer-events: none;
+}
+.professional-hero-content {
+  animation: mc-content-enter 0.7s ease both;
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--mc-teal);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.7px;
+}
+.professional-hero h1 {
+  margin: 0 0 20px;
+  color: var(--mc-blue-dark);
+  font-size: clamp(40px, 4.6vw, 64px);
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+.professional-hero h1 span,
+.section-heading h2 span,
+.telemedicine-content h2 span {
+  color: var(--mc-teal);
+}
+.hero-description {
+  max-width: 530px;
+  margin-bottom: 27px;
+  color: var(--mc-muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.primary-button,
+.secondary-button,
+.telemedicine-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 750;
+  transition:
+    transform var(--mc-transition),
+    background var(--mc-transition),
+    box-shadow var(--mc-transition);
+}
+.primary-button {
+  background: var(--mc-blue);
+  color: white;
+  box-shadow: 0 8px 20px rgba(23, 105, 170, 0.18);
+}
+.primary-button:hover {
+  transform: translateY(-3px);
+  background: var(--mc-blue-dark);
+  box-shadow: var(--mc-shadow);
+}
+.secondary-button {
+  border: 1px solid #cbdde8;
+  background: white;
+  color: var(--mc-blue-dark);
+}
+.secondary-button:hover {
+  transform: translateY(-3px);
+  background: var(--mc-blue-light);
+}
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 32px;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.trust-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 10px;
+  background: white;
+  color: var(--mc-blue);
+  box-shadow: 0 3px 12px rgba(24, 50, 71, 0.06);
+}
+.trust-item strong,
+.trust-item small {
+  display: block;
+}
+.trust-item strong {
+  font-size: 11px;
+}
+.trust-item small {
+  color: var(--mc-muted);
+  font-size: 10px;
+}
+
+.professional-hero-image {
+  position: relative;
+  z-index: 1;
+  min-height: 380px;
+  max-height: 500px;
+  animation: mc-fade-up 0.75s ease both;
+}
+.professional-hero-image > img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 45% 45% 22px 22px;
+  box-shadow: var(--mc-shadow);
+}
+.floating-doctor-card,
+.floating-support-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 250px;
+  padding: 12px 14px;
+  border: 1px solid rgba(225, 234, 240, 0.9);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: var(--mc-shadow);
+  animation: mc-float 4s ease-in-out infinite;
+}
+.floating-doctor-card {
+  top: 19%;
+  left: -30px;
+}
+.floating-support-card {
+  right: -12px;
+  bottom: 12%;
+  animation-delay: -2s;
+}
+.floating-icon,
+.floating-support-card > span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--mc-teal-light);
+  color: var(--mc-teal);
+  font-size: 20px;
+}
+.floating-doctor-card strong,
+.floating-doctor-card small,
+.floating-support-card strong,
+.floating-support-card small {
+  display: block;
+}
+.floating-doctor-card strong,
+.floating-support-card strong {
+  font-size: 11px;
+}
+.floating-doctor-card small,
+.floating-support-card small {
+  color: var(--mc-muted);
+  font-size: 10px;
+}
+
+/* Appointment form */
+.hero-appointment-card {
+  position: relative;
+  z-index: 3;
+  grid-column: 1 / -1;
+  width: min(100%, 980px);
+  justify-self: center;
+  margin-top: 12px;
+  padding: 28px;
+  border: 1px solid var(--mc-border);
+  border-radius: 20px;
+  background: white;
+  box-shadow: var(--mc-shadow);
+}
+.appointment-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 22px;
+}
+.appointment-heading-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--mc-blue-light);
+  color: var(--mc-blue);
+  font-size: 22px;
+}
+.appointment-card-heading h2 {
+  color: var(--mc-blue-dark);
+  font-size: 21px;
+  line-height: 1.35;
+}
+.appointment-card-heading p {
+  margin-top: 3px;
+  color: var(--mc-muted);
+  font-size: 13px;
+}
+.appointment-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+.form-group label {
+  color: var(--mc-ink);
+  font-size: 13px;
+  font-weight: 750;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-height: 47px;
+  padding: 11px 13px;
+  border: 1px solid #d4e1ea;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--mc-ink);
+  transition:
+    border-color var(--mc-transition),
+    box-shadow var(--mc-transition);
+}
+.form-group textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--mc-blue);
+  box-shadow: 0 0 0 4px rgba(23, 105, 170, 0.11);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.appointment-form > .form-group:has(textarea),
+.appointment-form > .appointment-btn,
+.appointment-form > .form-note {
+  grid-column: 1 / -1;
+}
+.appointment-btn {
+  width: 100%;
+  min-height: 49px;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--mc-blue);
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(23, 105, 170, 0.16);
+  transition:
+    transform var(--mc-transition),
+    background var(--mc-transition),
+    box-shadow var(--mc-transition);
+}
+.appointment-btn:hover {
+  transform: translateY(-2px);
+  background: var(--mc-blue-dark);
+  box-shadow: var(--mc-shadow);
+}
+.form-note {
+  margin-top: 9px;
+  color: var(--mc-muted);
+  text-align: center;
+  font-size: 11px;
+}
+
+/* General sections */
+.professional-section {
+  padding: 84px 7%;
+}
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+.section-heading .eyebrow {
+  margin-bottom: 10px;
+}
+.section-heading h2,
+.telemedicine-content h2 {
+  margin-bottom: 13px;
+  color: var(--mc-blue-dark);
+  font-size: clamp(29px, 3.2vw, 42px);
+  line-height: 1.22;
+  letter-spacing: -1px;
+}
+.section-description {
+  color: var(--mc-muted);
+  font-size: 15px;
+}
+
+/* Services */
+.services {
+  background: white;
+}
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.service-card {
+  padding: 27px 22px;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius);
+  background: white;
+  box-shadow: 0 5px 18px rgba(24, 50, 71, 0.045);
+  transition:
+    transform var(--mc-transition),
+    box-shadow var(--mc-transition),
+    border-color var(--mc-transition);
+}
+.service-card:hover {
+  transform: translateY(-7px);
+  border-color: #a7ddd7;
+  box-shadow: var(--mc-shadow);
+}
+.service-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--mc-blue-light);
+  color: var(--mc-blue);
+  font-size: 27px;
+}
+.service-green {
+  background: var(--mc-teal-light);
+  color: #0b817a;
+}
+.service-purple {
+  background: #f1edff;
+  color: #7253bf;
+}
+.service-orange {
+  background: #fff3e6;
+  color: #b86a18;
+}
+.service-card h3 {
+  margin-bottom: 10px;
+  color: var(--mc-blue-dark);
+  font-size: 17px;
+  line-height: 1.4;
+}
+.service-card p {
+  margin-bottom: 18px;
+  color: var(--mc-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.service-link {
+  color: var(--mc-blue);
+  font-size: 13px;
+  font-weight: 800;
+}
+.service-link:hover {
+  color: var(--mc-teal);
+}
+
+/* Doctors */
+.doctors {
+  background: #f0f6fa;
+}
+.doctors-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.doctor-card {
+  overflow: hidden;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius);
+  background: white;
+  box-shadow: 0 5px 18px rgba(24, 50, 71, 0.05);
+  transition:
+    transform var(--mc-transition),
+    box-shadow var(--mc-transition);
+}
+.doctor-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--mc-shadow);
+}
+.doctor-photo {
+  height: 250px;
+  overflow: hidden;
+  background: var(--mc-blue-light);
+}
+.doctor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+.doctor-card:hover .doctor-photo img {
+  transform: scale(1.045);
+}
+.doctor-details {
+  padding: 23px;
+}
+.doctor-status {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: var(--mc-teal-light);
+  color: #087b74;
+  font-size: 10px;
+  font-weight: 800;
+}
+.doctor-details h3 {
+  margin-bottom: 4px;
+  color: var(--mc-blue-dark);
+  font-size: 20px;
+}
+.doctor-specialty {
+  margin-bottom: 12px;
+  color: var(--mc-teal);
+  font-size: 13px;
+  font-weight: 800;
+}
+.doctor-details > p:not(.doctor-specialty) {
+  min-height: 48px;
+  margin-bottom: 18px;
+  color: var(--mc-muted);
+  font-size: 13px;
+}
+.doctor-btn {
+  display: inline-flex;
+  padding: 10px 15px;
+  border: 1px solid #c9e3f7;
+  border-radius: 9px;
+  background: var(--mc-blue-light);
+  color: var(--mc-blue-dark);
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    background var(--mc-transition),
+    color var(--mc-transition);
+}
+.doctor-btn:hover {
+  background: var(--mc-blue);
+  color: white;
+}
+
+/* Highlights */
+.healthcare-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 36px 7%;
+  background: var(--mc-blue-dark);
+  color: white;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.stat-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #7de1d8;
+  font-size: 23px;
+}
+.stat-item strong {
+  display: block;
+  font-size: 13px;
+}
+.stat-item p {
+  color: #d0e1ee;
+  font-size: 11px;
+}
+
+/* Telemedicine */
+.telemedicine-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+  align-items: center;
+  gap: 55px;
+  padding: 84px 7%;
+  background: linear-gradient(125deg, #fff, #edf8f7);
+}
+.telemedicine-content p {
+  max-width: 570px;
+  margin-bottom: 24px;
+  color: var(--mc-muted);
+  font-size: 15px;
+}
+.telemedicine-btn {
+  background: var(--mc-blue);
+  color: white;
+}
+.telemedicine-btn:hover {
+  transform: translateY(-3px);
+  background: var(--mc-blue-dark);
+}
+.telemedicine-image {
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: var(--mc-shadow);
+}
+.telemedicine-image img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.telemedicine-image:hover img {
+  transform: scale(1.04);
+}
+
+/* Contact */
+.contact {
+  background: white;
+}
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.contact-card {
+  padding: 28px 22px;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius);
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(24, 50, 71, 0.04);
+  transition:
+    transform var(--mc-transition),
+    box-shadow var(--mc-transition);
+}
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--mc-shadow);
+}
+.contact-icon {
+  display: grid;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 15px;
+  place-items: center;
+  border-radius: 15px;
+  background: var(--mc-blue-light);
+  color: var(--mc-blue);
+  font-size: 25px;
+}
+.contact-card h3 {
+  margin-bottom: 7px;
+  color: var(--mc-blue-dark);
+  font-size: 17px;
+}
+.contact-card p {
+  color: var(--mc-muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+.footer {
+  padding: 30px 6%;
+  background: #0d2c43;
+  color: #d9e8f2;
+  text-align: center;
+  font-size: 13px;
+}
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 22px;
+  font-weight: 850;
+}
+.footer > p {
+  margin-top: 4px;
+}
+.footer .copyright {
+  margin-top: 13px;
+  color: #a9c0d1;
+  font-size: 11px;
+}
+
+/* Entrance animation */
+@keyframes mc-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes mc-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .navbar {
+    padding-inline: 4%;
+    gap: 14px;
+  }
+  .nav-links {
+    gap: 7px 12px;
+  }
+  .nav-links a {
+    font-size: 12px;
+  }
+  .professional-hero,
+  .telemedicine-section {
+    padding-inline: 5%;
+    gap: 28px;
+  }
+  .professional-section {
+    padding-inline: 5%;
+  }
+  .services-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .healthcare-stats {
+    padding-inline: 5%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .navbar {
+    min-height: 70px;
+    padding: 12px 5%;
+    flex-wrap: wrap;
+  }
+  .navbar .logo {
+    font-size: 23px;
+  }
+  .mobile-menu-btn {
+    display: inline-grid;
+    place-items: center;
+    margin-left: auto;
+  }
+  .navbar nav {
+    display: none;
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .navbar nav.is-open {
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+    padding: 8px 0 12px;
+  }
+  .nav-links li,
+  .nav-links a {
+    width: 100%;
+  }
+  .nav-links a {
+    justify-content: flex-start;
+    padding: 9px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .nav-links a:hover {
+    background: #f0f7fb;
+  }
+  .nav-links .nav-register,
+  .nav-links .nav-book {
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .professional-hero {
+    grid-template-columns: 1fr;
+    padding: 54px 6% 60px;
+    gap: 28px;
+  }
+  .professional-hero h1 {
+    font-size: clamp(39px, 10vw, 54px);
+    letter-spacing: -1.3px;
+  }
+  .hero-description {
+    font-size: 15px;
+  }
+  .professional-hero-image {
+    width: min(100%, 440px);
+    min-height: 310px;
+    max-height: 390px;
+    margin: 0 auto;
+  }
+  .professional-hero-image > img {
+    min-height: 310px;
+    max-height: 390px;
+  }
+  .floating-doctor-card {
+    left: -5px;
+  }
+  .floating-support-card {
+    right: -5px;
+  }
+  .hero-trust-row {
+    gap: 13px;
+  }
+  .hero-appointment-card {
+    grid-column: auto;
+    padding: 22px 17px;
+  }
+  .appointment-form {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .appointment-form > .form-group:has(textarea),
+  .appointment-form > .appointment-btn,
+  .appointment-form > .form-note {
+    grid-column: auto;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .professional-section {
+    padding: 60px 6%;
+  }
+  .section-heading {
+    margin-bottom: 30px;
+  }
+  .services-container,
+  .doctors-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  .service-card {
+    padding: 25px;
+  }
+  .doctor-photo {
+    height: 280px;
+  }
+  .healthcare-stats {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 7%;
+  }
+  .telemedicine-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 60px 6%;
+  }
+  .telemedicine-image img {
+    height: 260px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   MEDICARE — EXTRA POLISH AND INTERACTIONS
+   Added without removing the existing responsive styles.
+   ========================================================= */
+
+/* Gentle entrance for the hero text */
+.professional-hero-content {
+  animation: mc-content-enter 0.7s ease both;
+}
+
+/* Smooth image interaction */
+.professional-hero-image > img {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.professional-hero-image:hover > img {
+  transform: scale(1.015);
+  filter: saturate(1.04);
+}
+
+/* Floating information cards respond to hover */
+.floating-doctor-card,
+.floating-support-card {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.floating-doctor-card:hover,
+.floating-support-card:hover {
+  border-color: #b8e6df;
+  box-shadow: 0 18px 38px rgba(24, 50, 71, 0.15);
+}
+
+/* More polished button interactions */
+.primary-button,
+.secondary-button,
+.telemedicine-btn,
+.appointment-btn,
+.nav-links .nav-book,
+.nav-links .nav-register,
+.doctor-btn {
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.telemedicine-btn:hover,
+.appointment-btn:hover,
+.nav-links .nav-book:hover,
+.nav-links .nav-register:hover,
+.doctor-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Give cards a consistent modern hover feel */
+.contact-card,
+.service-card,
+.doctor-card {
+  will-change: transform;
+}
+
+/* Clear focus treatment for keyboard navigation */
+.nav-links a:focus-visible,
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.appointment-btn:focus-visible,
+.doctor-btn:focus-visible,
+.telemedicine-btn:focus-visible {
+  outline: 3px solid var(--mc-teal);
+  outline-offset: 4px;
+}
+
+/* Hero text entrance animation */
+@keyframes mc-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .professional-hero-content {
+    animation: none;
+  }
+
+  .professional-hero-image > img {
+    transition: none;
+  }
+
+  .floating-doctor-card,
+  .floating-support-card,
+  .primary-button,
+  .secondary-button,
+  .telemedicine-btn,
+  .appointment-btn,
+  .nav-links .nav-book,
+  .nav-links .nav-register,
+  .doctor-btn,
+  .contact-card,
+  .service-card,
+  .doctor-card {
+    will-change: auto;
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MEDICARE — HOSPITAL IMAGE CARD POLISH
+   These additions enhance the existing hospital image card
+   without changing the rest of the homepage layout.
+   ========================================================= */
+
+/* Make the hero image area a safe positioning context. */
+.professional-hero-image {
+  isolation: isolate;
+}
+
+/* Give the floating hospital card a clean, modern appearance. */
+.floating-support-card {
+  z-index: 5;
+  max-width: min(280px, 78%);
+  overflow: hidden;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow:
+    0 18px 45px rgba(16, 60, 101, 0.2),
+    0 4px 14px rgba(19, 168, 158, 0.1);
+  backdrop-filter: blur(10px);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.floating-support-card:hover {
+  border-color: #9bded6;
+  box-shadow:
+    0 24px 55px rgba(16, 60, 101, 0.25),
+    0 7px 20px rgba(19, 168, 158, 0.16);
+}
+
+/* If the hospital picture is an image inside the floating card,
+   show it clearly with rounded corners and a subtle zoom effect. */
+.floating-support-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 70px;
+  max-height: 125px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.floating-support-card:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.06);
+}
+
+/* Keep the card text readable if it contains an image and caption. */
+.floating-support-card strong {
+  color: var(--mc-blue-dark);
+  line-height: 1.4;
+}
+
+.floating-support-card small {
+  line-height: 1.5;
+}
+
+/* On narrow screens, keep the hospital card inside the hero area. */
+@media (max-width: 760px) {
+  .floating-support-card {
+    right: 0;
+    bottom: 8%;
+    max-width: 230px;
+    padding: 8px;
+  }
+
+  .floating-support-card img {
+    max-height: 105px;
+  }
+}
+
+/* Respect reduced-motion preferences for the new image interaction. */
+@media (prefers-reduced-motion: reduce) {
+  .floating-support-card img {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MEDICARE — HOMEPAGE DESIGN REFINEMENT
+   Safe visual overrides: existing HTML, links and form actions stay intact.
+   ========================================================= */
+
+:root {
+  --mc-blue: #1769aa;
+  --mc-blue-dark: #103c65;
+  --mc-blue-light: #eaf4fc;
+  --mc-teal: #13a89e;
+  --mc-teal-light: #e5f7f4;
+  --mc-ink: #183247;
+  --mc-muted: #647789;
+  --mc-bg: #f4f8fb;
+  --mc-white: #ffffff;
+  --mc-border: #e1eaf0;
+  --mc-shadow: 0 16px 42px rgba(24, 50, 71, 0.1);
+  --mc-radius: 20px;
+}
+
+body {
+  background: var(--mc-bg);
+  color: var(--mc-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Navigation: cleaner spacing, stronger brand and a clear primary action. */
+.navbar {
+  min-height: 80px;
+  padding: 14px clamp(20px, 5.5vw, 84px);
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(225, 234, 240, 0.9);
+  box-shadow: 0 5px 24px rgba(16, 60, 101, 0.055);
+}
+
+.navbar .logo {
+  font-size: 26px;
+  letter-spacing: -0.8px;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #2186cb, #14558c);
+}
+
+.nav-links {
+  gap: 7px 15px;
+}
+
+.nav-links a {
+  min-height: 40px;
+  padding: 8px 2px;
+  border-radius: 9px;
+  transition:
+    color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.nav-links a:hover {
+  color: var(--mc-teal);
+}
+
+.nav-links .nav-register {
+  padding: 8px 13px;
+  border-color: #c8dfef;
+  background: #f7fbfe;
+}
+
+.nav-links .nav-book {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #217fc0, #1769aa);
+  box-shadow: 0 7px 17px rgba(23, 105, 170, 0.2);
+}
+
+/* Hero: richer healthcare palette with improved balance and whitespace. */
+.professional-hero {
+  isolation: isolate;
+  gap: clamp(28px, 4vw, 58px);
+  padding: clamp(58px, 7vw, 94px) clamp(24px, 7vw, 104px) 82px;
+  background:
+    radial-gradient(
+      ellipse at 88% 15%,
+      rgba(19, 168, 158, 0.13),
+      transparent 34%
+    ),
+    linear-gradient(125deg, #eef7fd 0%, #f8fbfe 55%, #eaf8f5 100%);
+}
+
+.hero-background-shape {
+  top: -160px;
+  right: -130px;
+  width: 500px;
+  height: 500px;
+  background: rgba(19, 168, 158, 0.075);
+}
+
+.professional-hero-content {
+  max-width: 680px;
+}
+
+.professional-hero .eyebrow,
+.section-heading .eyebrow,
+.telemedicine-content .eyebrow {
+  padding: 7px 11px;
+  border: 1px solid rgba(19, 168, 158, 0.16);
+  border-radius: 999px;
+  background: rgba(229, 247, 244, 0.82);
+  color: #087f78;
+  font-size: 10px;
+  letter-spacing: 1.45px;
+}
+
+.professional-hero h1 {
+  margin-bottom: 22px;
+  font-size: clamp(42px, 4.8vw, 68px);
+  line-height: 1.07;
+  letter-spacing: -2.5px;
+}
+
+.hero-description {
+  max-width: 550px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.primary-button,
+.secondary-button,
+.telemedicine-btn {
+  min-height: 51px;
+  padding: 13px 21px;
+  border-radius: 12px;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #2182c4, #1769aa);
+  box-shadow: 0 10px 22px rgba(23, 105, 170, 0.21);
+}
+
+.secondary-button {
+  border-color: #d5e4ed;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.professional-hero-image {
+  min-height: 400px;
+  max-height: 520px;
+}
+
+.professional-hero-image > img {
+  min-height: 400px;
+  max-height: 520px;
+  border-radius: 46% 46% 24px 24px;
+  box-shadow: 0 24px 60px rgba(16, 60, 101, 0.17);
+}
+
+.floating-doctor-card,
+.floating-support-card {
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 38px rgba(16, 60, 101, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.floating-doctor-card {
+  left: -24px;
+}
+
+/* This is the hospital-image link embedded in the existing hero HTML. */
+.professional-hero-image > a[aria-label="Explore MediCare hospital services"] {
+  right: -20px !important;
+  bottom: -26px !important;
+  width: min(58%, 300px) !important;
+  padding: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.96) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 22px 48px rgba(16, 60, 101, 0.2) !important;
+}
+
+.professional-hero-image
+  > a[aria-label="Explore MediCare hospital services"]
+  img {
+  height: 135px !important;
+  border-radius: 12px !important;
+}
+
+/* Appointment form: distinct panel and consistent input styling. */
+.hero-appointment-card {
+  width: min(100%, 1040px);
+  margin-top: 24px;
+  padding: clamp(22px, 3vw, 36px);
+  border: 1px solid rgba(216, 230, 239, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 22px 55px rgba(24, 50, 71, 0.1);
+}
+
+.appointment-card-heading {
+  margin-bottom: 26px;
+}
+
+.appointment-heading-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #eaf4fc, #e5f7f4);
+}
+
+.form-group {
+  gap: 8px;
+  margin-bottom: 19px;
+}
+
+.form-group label {
+  font-size: 12px;
+  letter-spacing: 0.15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  min-height: 49px;
+  padding: 12px 14px;
+  border-color: #d8e4ec;
+  border-radius: 11px;
+  background: #fbfdfe;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--mc-blue);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(23, 105, 170, 0.1);
+}
+
+.appointment-btn {
+  min-height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2182c4, #1769aa);
+}
+
+/* Shared section rhythm and heading treatment. */
+.professional-section,
+.telemedicine-section {
+  padding-top: clamp(62px, 7vw, 92px);
+  padding-bottom: clamp(62px, 7vw, 92px);
+}
+
+.section-heading {
+  margin-bottom: 44px;
+}
+
+.section-heading h2,
+.telemedicine-content h2 {
+  font-size: clamp(30px, 3.3vw, 44px);
+  letter-spacing: -1.35px;
+}
+
+/* Service cards: crisp borders, comfortable spacing and a subtle lift. */
+.services {
+  background: #fff;
+}
+
+.services-container {
+  gap: 22px;
+}
+
+.service-card {
+  padding: 29px 24px;
+  border-color: #e5edf2;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(24, 50, 71, 0.045);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #b9e2dc;
+  box-shadow: 0 20px 42px rgba(24, 50, 71, 0.1);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+}
+
+.service-card h3 {
+  font-size: 17px;
+  letter-spacing: -0.2px;
+}
+
+/* Doctors: unified image heights and polished profile panels. */
+.doctors {
+  background: linear-gradient(180deg, #f1f7fb 0%, #edf5f9 100%);
+}
+
+.doctors-container {
+  gap: 25px;
+}
+
+.doctor-card {
+  border-color: #e1eaf0;
+  border-radius: 21px;
+  box-shadow: 0 9px 28px rgba(24, 50, 71, 0.055);
+}
+
+.doctor-card:hover {
+  box-shadow: 0 22px 44px rgba(24, 50, 71, 0.12);
+}
+
+.doctor-photo {
+  height: 265px;
+}
+
+.doctor-details {
+  padding: 25px;
+}
+
+.doctor-status {
+  padding: 6px 10px;
+  letter-spacing: 0.25px;
+}
+
+.doctor-btn {
+  border-radius: 10px;
+}
+
+/* Statistics strip: more deliberate contrast and spacing. */
+.healthcare-stats {
+  gap: 24px;
+  padding: 38px clamp(24px, 7vw, 104px);
+  background: linear-gradient(110deg, #103c65, #14577a);
+}
+
+.stat-icon {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Telemedicine: matching gradient, rounded image and clearer call to action. */
+.telemedicine-section {
+  gap: clamp(30px, 5vw, 64px);
+  background: linear-gradient(125deg, #fff 0%, #f0f9f8 100%);
+}
+
+.telemedicine-image {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  box-shadow: 0 20px 48px rgba(24, 50, 71, 0.12);
+}
+
+.telemedicine-image img {
+  height: 360px;
+}
+
+/* Contact cards and footer. */
+.contact {
+  background: #fff;
+}
+
+.contact-card {
+  padding: 31px 24px;
+  border-color: #e5edf2;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fff 0%, #fbfdfe 100%);
+}
+
+.contact-icon {
+  border-radius: 17px;
+  background: linear-gradient(145deg, #eaf4fc, #e5f7f4);
+}
+
+.footer {
+  padding: 38px 6%;
+  background: linear-gradient(110deg, #0b293f, #103c5b);
+}
+
+.footer-logo {
+  margin-bottom: 8px;
+  font-size: 25px;
+  letter-spacing: -0.4px;
+}
+
+.footer .copyright {
+  margin-top: 16px;
+}
+
+/* Tablet and smaller laptop screens. */
+@media (max-width: 1100px) {
+  .navbar {
+    padding-inline: 4%;
+  }
+
+  .nav-links {
+    gap: 5px 10px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .professional-hero {
+    padding-inline: 5%;
+  }
+}
+
+/* Mobile: avoid clipped floating cards and keep forms easy to use. */
+@media (max-width: 760px) {
+  .navbar {
+    min-height: 70px;
+    padding: 12px 5%;
+  }
+
+  .navbar .logo {
+    font-size: 23px;
+  }
+
+  .mobile-menu-btn {
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(23, 105, 170, 0.18);
+  }
+
+  .navbar nav.is-open {
+    padding-top: 8px;
+  }
+
+  .nav-links {
+    gap: 3px;
+  }
+
+  .nav-links a {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .professional-hero {
+    padding: 48px 6% 56px;
+    gap: 27px;
+  }
+
+  .professional-hero h1 {
+    font-size: clamp(39px, 10vw, 53px);
+    letter-spacing: -1.5px;
+  }
+
+  .professional-hero-image {
+    width: min(100%, 440px);
+    min-height: 310px;
+    max-height: 390px;
+    margin: 0 auto 16px;
+  }
+
+  .professional-hero-image > img {
+    min-height: 310px;
+    max-height: 390px;
+  }
+
+  .floating-doctor-card {
+    top: 12%;
+    left: -4px;
+    max-width: 220px;
+    padding: 9px 10px;
+  }
+
+  .floating-support-card {
+    right: 0;
+    bottom: 9%;
+    max-width: 210px;
+  }
+
+  .professional-hero-image
+    > a[aria-label="Explore MediCare hospital services"] {
+    right: -3px !important;
+    bottom: -16px !important;
+    width: 56% !important;
+    padding: 6px !important;
+  }
+
+  .professional-hero-image
+    > a[aria-label="Explore MediCare hospital services"]
+    img {
+    height: 90px !important;
+  }
+
+  .hero-appointment-card {
+    margin-top: 13px;
+    padding: 22px 17px;
+    border-radius: 19px;
+  }
+
+  .appointment-card-heading h2 {
+    font-size: 19px;
+  }
+
+  .professional-section,
+  .telemedicine-section {
+    padding: 58px 6%;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .service-card,
+  .doctor-details,
+  .contact-card {
+    padding: 23px;
+  }
+
+  .doctor-photo {
+    height: 275px;
+  }
+
+  .healthcare-stats {
+    padding: 30px 7%;
+  }
+
+  .telemedicine-image img {
+    height: 250px;
+  }
+
+  .footer {
+    padding: 32px 6%;
+  }
+}
+
+@media (max-width: 380px) {
+  .professional-hero h1 {
+    font-size: 37px;
+  }
+
+  .professional-hero-image
+    > a[aria-label="Explore MediCare hospital services"]
+    span {
+    font-size: 10px !important;
+  }
+
+  .floating-doctor-card strong,
+  .floating-support-card strong {
+    font-size: 10px;
+  }
+}
+
+/* Honour reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .professional-hero-content,
+  .professional-hero-image,
+  .professional-hero-image
+    > a[aria-label="Explore MediCare hospital services"] {
+    animation: none !important;
+  }
+}
+/* ==========================================
+   MEDICARE HOMEPAGE — VISIBLE DESIGN UPDATE
+   ========================================== */
+
+/* Modern page background */
+body {
+  background: #f3f8fc !important;
+  color: #183247;
+}
+
+/* Navigation bar */
+.navbar {
+  background: #ffffff !important;
+  min-height: 84px;
+  padding: 16px 5% !important;
+  box-shadow: 0 5px 25px rgba(16, 60, 101, 0.1) !important;
+  border-bottom: 2px solid #e3f0f7 !important;
+}
+
+/* Hero section */
+.professional-hero {
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(19, 168, 158, 0.2),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #e7f4ff 0%, #f8fcff 55%, #dff7f1 100%) !important;
+
+  padding-top: 90px !important;
+  padding-bottom: 100px !important;
+}
+
+/* Main heading */
+.professional-hero h1 {
+  color: #103c65 !important;
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+/* Highlighted heading text */
+.professional-hero h1 span {
+  color: #0caa9d !important;
+}
+
+/* Hero description */
+.hero-description {
+  color: #526a7c !important;
+  line-height: 1.9;
+}
+
+/* Hero image */
+.professional-hero-image > img {
+  border-radius: 35px !important;
+  box-shadow: 0 25px 60px rgba(16, 60, 101, 0.18) !important;
+}
+
+/* Appointment form */
+.hero-appointment-card {
+  background: #ffffff !important;
+  border: 1px solid #dceaf3 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 55px rgba(16, 60, 101, 0.12) !important;
+}
+
+/* Service cards */
+.service-card {
+  background: #ffffff !important;
+  border: 1px solid #dfebf3 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 30px rgba(16, 60, 101, 0.06) !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+.service-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 40px rgba(16, 60, 101, 0.12) !important;
+}
+
+/* Doctors section */
+.doctors {
+  background: #edf5fa !important;
+}
+
+.doctor-card {
+  border-radius: 22px !important;
+  box-shadow: 0 12px 32px rgba(16, 60, 101, 0.08) !important;
+}
+
+/* Primary buttons */
+.primary-button,
+.appointment-btn,
+.nav-links .nav-book {
+  background: linear-gradient(135deg, #2186c8, #14558c) !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(120deg, #0b293f, #14577a) !important;
+  color: #ffffff !important;
+}
+
+/* Keep the layout responsive */
+@media (max-width: 760px) {
+  .professional-hero {
+    padding: 50px 6% 60px !important;
+  }
+
+  .navbar {
+    padding: 12px 5% !important;
+  }
+}
+
+/* =========================================================
+   MEDICARE — FINAL VISIBLE DESIGN OVERRIDES
+   These rules intentionally appear last to take precedence.
+   ========================================================= */
+
+body {
+  background: #f2f7fb !important;
+  color: #183247;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid #dbe8f0 !important;
+  box-shadow: 0 8px 28px rgba(16, 60, 101, 0.09) !important;
+}
+
+.professional-hero {
+  background:
+    radial-gradient(
+      ellipse at 82% 20%,
+      rgba(19, 168, 158, 0.22),
+      transparent 32%
+    ),
+    linear-gradient(125deg, #dceeff 0%, #f5fbff 48%, #d9f5ee 100%) !important;
+  padding-top: clamp(64px, 7vw, 96px) !important;
+  padding-bottom: clamp(70px, 8vw, 108px) !important;
+}
+
+.professional-hero h1 {
+  color: #103c65 !important;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.45);
+}
+
+.professional-hero h1 span {
+  color: #078b83 !important;
+}
+
+.hero-description {
+  color: #4d6577 !important;
+}
+
+.professional-hero-image > img {
+  border: 5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 28px 65px rgba(16, 60, 101, 0.22) !important;
+}
+
+.hero-appointment-card {
+  border: 1px solid #d7e7f1 !important;
+  background: #ffffff !important;
+  box-shadow: 0 24px 60px rgba(16, 60, 101, 0.13) !important;
+}
+
+.primary-button,
+.appointment-btn,
+.nav-links .nav-book,
+.telemedicine-btn {
+  background: linear-gradient(135deg, #2186c8, #14558c) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(23, 105, 170, 0.22) !important;
+}
+
+.secondary-button {
+  border-color: #c6dce9 !important;
+  background: #ffffff !important;
+}
+
+.services {
+  background: #ffffff !important;
+}
+
+.service-card {
+  border: 1px solid #dce9f1 !important;
+  box-shadow: 0 12px 30px rgba(16, 60, 101, 0.07) !important;
+}
+
+.doctors {
+  background: linear-gradient(180deg, #eaf3f9, #f5f9fc) !important;
+}
+
+.doctor-card,
+.contact-card {
+  border: 1px solid #dce8f0 !important;
+  box-shadow: 0 12px 32px rgba(16, 60, 101, 0.08) !important;
+}
+
+.healthcare-stats {
+  background: linear-gradient(110deg, #103c65, #087f83) !important;
+}
+
+.telemedicine-section {
+  background: linear-gradient(125deg, #ffffff 0%, #e6f7f4 100%) !important;
+}
+
+.footer {
+  background: linear-gradient(110deg, #0b293f, #14577a) !important;
+}
+
+@media (max-width: 760px) {
+  .professional-hero {
+    padding: 50px 6% 60px !important;
+  }
+}
+
+/* ==========================================
+   MEDICARE HOMEPAGE — DESIGN IMPROVEMENTS
+   ========================================== */
+
+:root {
+  --mc-blue: #1769aa;
+  --mc-dark: #103c65;
+  --mc-teal: #13a89e;
+  --mc-bg: #f5f9fc;
+}
+
+/* Main page */
+body {
+  background: var(--mc-bg) !important;
+  color: #183247;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Navigation bar */
+.navbar {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(16, 60, 101, 0.08);
+  padding: 16px 5% !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  transition: color 0.25s ease;
+}
+
+.navbar a:hover {
+  color: var(--mc-teal) !important;
+}
+
+/* Hero section */
+.professional-hero {
+  background:
+    radial-gradient(
+      ellipse at 85% 20%,
+      rgba(19, 168, 158, 0.14),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #ffffff, #edf8f8) !important;
+  border-radius: 0 0 32px 32px;
+  padding-top: 75px !important;
+  padding-bottom: 75px !important;
+}
+
+/* Hero headings */
+.professional-hero h1 {
+  color: var(--mc-dark) !important;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+/* Appointment form */
+.hero-appointment-card,
+.appointment-card {
+  background: #ffffff !important;
+  border: 1px solid #e1eaf0 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 15px 40px rgba(16, 60, 101, 0.1) !important;
+  padding: 25px !important;
+}
+
+/* Form fields */
+input,
+select,
+textarea {
+  border: 1px solid #d8e4ed !important;
+  border-radius: 10px !important;
+  padding: 12px !important;
+  transition: border-color 0.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--mc-teal) !important;
+  outline: none;
+}
+
+/* Primary buttons */
+.primary-button,
+.appointment-btn,
+.nav-links .nav-book {
+  background: linear-gradient(135deg, #1769aa, #13a89e) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 12px 22px !important;
+  font-weight: 600;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.primary-button:hover,
+.appointment-btn:hover,
+.nav-links .nav-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(23, 105, 170, 0.22);
+}
+
+/* Services section */
+.services,
+.services.professional-section {
+  background: #ffffff !important;
+  padding-top: 70px !important;
+  padding-bottom: 70px !important;
+}
+
+/* Service cards */
+.service-card {
+  background: #ffffff !important;
+  border: 1px solid #e1eaf0 !important;
+  border-radius: 18px !important;
+  padding: 25px !important;
+  box-shadow: 0 8px 25px rgba(16, 60, 101, 0.06) !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(16, 60, 101, 0.12) !important;
+}
+
+/* Doctors section */
+.doctors,
+.doctors.professional-section {
+  background: linear-gradient(180deg, #eaf4fa, #f7fafc) !important;
+  padding-top: 70px !important;
+  padding-bottom: 70px !important;
+}
+
+.doctor-card {
+  background: #ffffff !important;
+  border: 1px solid #e1eaf0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 28px rgba(16, 60, 101, 0.08) !important;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Healthcare statistics */
+.healthcare-stats {
+  background: linear-gradient(120deg, #103c65, #087f83) !important;
+  color: #ffffff !important;
+  padding: 55px 5% !important;
+}
+
+/* Telemedicine section */
+.telemedicine-section {
+  background: linear-gradient(135deg, #ffffff, #e5f7f3) !important;
+  padding-top: 65px !important;
+  padding-bottom: 65px !important;
+}
+
+/* Footer */
+.footer,
+.professional-footer {
+  background: linear-gradient(120deg, #0b293f, #14577a) !important;
+  color: #ffffff !important;
+  padding: 40px 5% !important;
+}
+
+.footer a,
+.professional-footer a {
+  color: #e5f7f4;
+}
+
+.footer a:hover,
+.professional-footer a:hover {
+  color: #ffffff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .professional-hero {
+    padding: 45px 5% !important;
+  }
+
+  .professional-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-appointment-card,
+  .appointment-card {
+    padding: 18px !important;
+  }
+
+  .service-card,
+  .doctor-card {
+    margin-bottom: 18px;
+  }
+}
+
+/* =====================================
+   MEDICARE HOMEPAGE DESIGN IMPROVEMENTS
+   ===================================== */
+
+/* Homepage background */
+body {
+  background: #f5f9fc !important;
+  color: #183247;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Modern navigation bar */
+.navbar {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(16, 60, 101, 0.1);
+  padding: 16px 5% !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Hero section */
+.professional-hero {
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(19, 168, 158, 0.16),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #ffffff, #eaf7f7) !important;
+  padding-top: 75px !important;
+  padding-bottom: 75px !important;
+}
+
+/* Hero heading */
+.professional-hero h1 {
+  color: #103c65 !important;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* Appointment card */
+.hero-appointment-card,
+.appointment-card {
+  background: #ffffff !important;
+  border: 1px solid #e1eaf0 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 12px 35px rgba(16, 60, 101, 0.1) !important;
+}
+
+/* Buttons */
+.primary-button,
+.appointment-btn {
+  background: linear-gradient(135deg, #1769aa, #13a89e) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 12px 22px !important;
+  transition: 0.3s ease;
+}
+
+.primary-button:hover,
+.appointment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(23, 105, 170, 0.2);
+}
+
+/* Service cards */
+.service-card {
+  background: #ffffff !important;
+  border: 1px solid #e1eaf0 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 25px rgba(16, 60, 101, 0.07) !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(16, 60, 101, 0.12) !important;
+}
+
+/* Doctors section */
+.doctors.professional-section {
+  background: #edf6fb !important;
+  padding-top: 65px !important;
+  padding-bottom: 65px !important;
+}
+
+/* Doctor cards */
+.doctor-card {
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 25px rgba(16, 60, 101, 0.08) !important;
+  overflow: hidden;
+}
+
+/* Healthcare statistics */
+.healthcare-stats {
+  background: linear-gradient(120deg, #103c65, #087f83) !important;
+  color: #ffffff !important;
+}
+
+/* Footer */
+.professional-footer {
+  background: linear-gradient(120deg, #0b293f, #14577a) !important;
+  color: #ffffff !important;
+  padding: 40px 5% !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .professional-hero {
+    padding: 45px 5% !important;
+  }
+
+  .professional-hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================================================
+   MediCare homepage final polish (v9)
+   ========================================================= */
+.nav-links .nav-login,
+.nav-links .nav-register,
+.nav-links .nav-book {
+  white-space: nowrap;
+}
+
+.nav-links a:focus-visible {
+  outline: 3px solid var(--mc-teal);
+  outline-offset: 3px;
+}
+
+@media (min-width: 761px) {
+  .navbar {
+    gap: 20px;
+  }
+
+  .navbar nav {
+    min-width: 0;
+  }
+
+  .nav-links {
+    gap: 7px 15px;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-links .nav-login,
+  .nav-links .nav-register,
+  .nav-links .nav-book {
+    width: 100%;
+    justify-content: center;
+  }
+}

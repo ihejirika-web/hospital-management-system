@@ -1,0 +1,32 @@
+# Protect database configuration
+
+config/database.php
+
+# Protect private environment settings
+
+.env
+.env.*
+!.env.example
+
+# Ignore dependencies
+
+/vendor/
+
+# Ignore log files
+
+*.log
+
+# Ignore operating system files
+
+.DS_Store
+Thumbs.db
+
+# Exclude temporary diagnostic scripts
+/reset-doctor-password.php
+/test-doctor-login.php
+
+# Exclude administrator setup utility
+/admin/create-admin.php
+
+# Exclude backup files
+*-backup.*
