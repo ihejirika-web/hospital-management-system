@@ -81,52 +81,8 @@ $recentAppointments = $conn->query(
 
 <div class="dashboard">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <a href="../index.php" class="brand">
-            <span class="brand-icon">✚</span>
-            <span>MediCare</span>
-        </a>
-
-        <p class="sidebar-label">MAIN MENU</p>
-
-        <nav class="sidebar-nav">
-
-            <a href="index.php" class="nav-item active">
-                <span>▦</span> Dashboard
-            </a>
-
-            <a href="#appointments" class="nav-item">
-                <span>▣</span> Appointments
-            </a>
-
-            <a href="#patients" class="nav-item">
-                <span>♙</span> Patients
-            </a>
-
-            <a href="#doctors" class="nav-item">
-                <span>✚</span> Doctors
-            </a>
-
-            <!-- SETTINGS -->
-            <a href="settings.php" class="nav-item">
-                <span>⚙</span> Settings
-            </a>
-
-            <!-- LOG OUT -->
-            <a href="../pages/logout.php" class="nav-item">
-                <span>↪</span> Log Out
-            </a>
-
-        </nav>
-
-        <div class="sidebar-bottom">
-            <p>Hospital Management System</p>
-            <a href="../index.php">← Back to Homepage</a>
-        </div>
-
-    </aside>
+    <!-- SHARED ADMIN SIDEBAR -->
+    <?php require __DIR__ . '/sidebar.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
@@ -315,7 +271,7 @@ $recentAppointments = $conn->query(
                 <span class="arrow">→</span>
             </a>
 
-            <a href="#patients" class="quick-card" id="patients">
+            <a href="patients.php" class="quick-card">
                 <span class="quick-icon green">♙</span>
                 <div>
                     <h3>Patient Overview</h3>
@@ -324,7 +280,7 @@ $recentAppointments = $conn->query(
                 <span class="arrow">→</span>
             </a>
 
-            <a href="#doctors" class="quick-card" id="doctors">
+            <a href="doctors.php" class="quick-card">
                 <span class="quick-icon purple">✚</span>
                 <div>
                     <h3>Doctor Overview</h3>

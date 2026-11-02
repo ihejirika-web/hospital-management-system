@@ -217,33 +217,7 @@ function escapeHtml(string $value): string
 <body>
 <div class="dashboard">
 
-    <aside class="sidebar">
-        <a href="../index.php" class="brand">
-            <span class="brand-icon">✚</span>
-            <span>MediCare</span>
-        </a>
-
-        <p class="sidebar-label">ADMIN MENU</p>
-
-        <nav class="sidebar-nav">
-            <a href="index.php" class="nav-item">
-                <span>▦</span> Dashboard
-            </a>
-
-            <a href="settings.php" class="nav-item active">
-                <span>⚙</span> Settings
-            </a>
-
-            <a href="../pages/logout.php" class="nav-item">
-                <span>↪</span> Log Out
-            </a>
-        </nav>
-
-        <div class="sidebar-bottom">
-            <p>Hospital Management System</p>
-            <a href="index.php">← Back to Dashboard</a>
-        </div>
-    </aside>
+    <?php require __DIR__ . '/sidebar.php'; ?>
 
     <main class="main-content">
 

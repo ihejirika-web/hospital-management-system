@@ -13,9 +13,39 @@ if (
     exit;
 }
 
-// Get the logged-in patient's information.
+// Retrieve the logged-in patient's profile from the database.
 $patientId = (int) $_SESSION["user_id"];
+$patient = null;
 $patientName = $_SESSION["user_name"] ?? "Patient";
+$profileError = "";
+
+$profileStmt = $conn->prepare(
+    "SELECT id, full_name, email, phone, created_at FROM patients WHERE id = ? LIMIT 1"
+);
+
+if ($profileStmt) {
+    $profileStmt->bind_param("i", $patientId);
+
+    if ($profileStmt->execute()) {
+        $profileResult = $profileStmt->get_result();
+        $patient = $profileResult->fetch_assoc();
+
+        if ($patient) {
+            $patientName = $patient["full_name"];
+            // Keep the session name in sync with the database profile.
+            $_SESSION["user_name"] = $patientName;
+            $_SESSION["user_email"] = $patient["email"];
+        } else {
+            $profileError = "We could not find your patient profile. Please contact the administrator.";
+        }
+    } else {
+        $profileError = "Your profile could not be loaded. Please refresh the page.";
+    }
+
+    $profileStmt->close();
+} else {
+    $profileError = "Your profile could not be loaded. Please try again later.";
+}
 
 $error = "";
 $appointments = [];
@@ -150,6 +180,56 @@ function escapeHTML($value)
 
         .welcome p {
             line-height: 1.7;
+        }
+
+        .profile-section {
+            background: #ffffff;
+            padding: 26px 28px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(30, 60, 90, 0.06);
+            margin-bottom: 30px;
+        }
+
+        .profile-section h2 {
+            font-size: 21px;
+            margin-bottom: 18px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .profile-item {
+            padding: 14px 16px;
+            background: #f7fafc;
+            border-radius: 10px;
+            min-width: 0;
+        }
+
+        .profile-label {
+            display: block;
+            color: #718096;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 5px;
+        }
+
+        .profile-value {
+            color: #203047;
+            font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-error {
+            background: #fff4d6;
+            color: #805b00;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 18px;
         }
 
         .cards {
@@ -332,7 +412,8 @@ function escapeHTML($value)
         }
 
         @media (max-width: 650px) {
-            .cards {
+            .cards,
+            .profile-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -391,6 +472,47 @@ function escapeHTML($value)
             Manage your appointments and access your healthcare
             services from one convenient place.
         </p>
+    </section>
+
+    <!-- Logged-in patient profile -->
+
+    <section class="profile-section" aria-labelledby="profile-heading">
+        <h2 id="profile-heading">👤 My Account Information</h2>
+
+        <?php if ($profileError !== ""): ?>
+            <div class="profile-error" role="alert">
+                <?= escapeHTML($profileError) ?>
+            </div>
+        <?php elseif ($patient): ?>
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <span class="profile-label">Full name</span>
+                    <span class="profile-value"><?= escapeHTML($patient["full_name"]) ?></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Email address</span>
+                    <span class="profile-value"><?= escapeHTML($patient["email"]) ?></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Phone number</span>
+                    <span class="profile-value"><?= escapeHTML($patient["phone"]) ?></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Patient ID</span>
+                    <span class="profile-value">#<?= (int) $patient["id"] ?></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Account created</span>
+                    <span class="profile-value">
+                        <?= escapeHTML(date("d M Y", strtotime($patient["created_at"]))) ?>
+                    </span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Account type</span>
+                    <span class="profile-value">Patient</span>
+                </div>
+            </div>
+        <?php endif; ?>
     </section>
 
     <!-- Main dashboard cards -->
